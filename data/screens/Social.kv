@@ -1,0 +1,77 @@
+Inno2Screen:
+	fullscreen: True
+
+
+	name: 'social'
+
+
+	GridLayout:
+		size_hint_y:.8
+		rows: 3
+		cols: 2
+		size_hint_x: .9
+		BoxLayout:
+			orientation: 'vertical' 
+			Label: 
+				background_color: (1, 1, 1, 1)
+				text: 'Imagen representativa'
+				size_hint_y: .8
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y: .2
+				Label: 
+					text: 'Nombre Idea'
+					size_hint_x: .8
+				Button:  
+					text: '+'
+					on_release: app.go_screen(8)
+					size_hint_x: .2
+		BoxLayout:
+			orientation: 'vertical' 
+			Label: 
+				background_color: (0, 0, 0, 1)
+				text: 'Imagen representativa'
+				size_hint_y: .8
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y: .2
+				Label: 
+					text: 'Nombre Idea'
+					size_hint_x: .8
+				Button:  
+					text: '+'
+					on_release: app.go_screen(8)
+					size_hint_x: .2
+
+		BoxLayout:
+			orientation: 'vertical' 
+			Label: 
+				text: 'Imagen representativa'
+				size_hint_y: .8
+				background_color: (.5,.9,.1, 1)
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y: .2
+				Label: 
+					text: 'Nombre Idea'
+					size_hint_x: .8
+				Button:  
+					text: '+'
+					on_release: app.go_screen(8)
+					size_hint_x: .2
+		BoxLayout:
+			orientation: 'vertical' 
+			Label: 
+				text: 'Imagen representativa'
+				size_hint_y: .8
+				background_color: (1, 0, 0, 1)
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y: .2
+				Label: 
+					text: 'Nombre Idea'
+					size_hint_x: .8
+				Button:  
+					text: '+'
+					on_release: app.go_screen(8)
+					size_hint_x: .2

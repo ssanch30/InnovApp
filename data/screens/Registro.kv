@@ -1,0 +1,75 @@
+Inno2Screen:
+	
+
+	name: 'registro'
+	userinput: userinput
+	fullscreen: True
+	BoxLayout:
+		orientation: 'vertical'
+		GridLayout:
+			id: userinput
+			nombre: nombre.text
+			apellido: apellido.text
+			email: email.text
+			passwd: passwd.text
+			cargo: cargo.text
+			rows: 5
+			cols: 2
+			size_hint_y: .9
+			spacing: 60
+			padding: 20
+
+			CustLabel2:	
+				text: 'Nombre: '
+			TextInput:
+				id: nombre
+				font_size: 24
+				size_hint_x: .8
+				focus: True
+				write_tab: False
+				multiline: False
+
+			CustLabel2:
+				text: 'Apellido: '
+			TextInput:
+				id: apellido
+				size_hint_x: .8
+				multiline: False
+				write_tab: False
+			CustLabel2:
+				text: 'E-mail: '	
+			TextInput:
+				id: email
+				size_hint_x: .8
+				write_tab: False
+				multiline: False
+
+			CustLabel2:
+				text: 'Contrase\u00F1a: '
+			TextInput:
+				id: passwd
+				size_hint_x: .8
+				write_tab: False
+				multiline: False
+				password: True
+
+			CustLabel2:
+				text: 'Cargo: '
+			TextInput:
+				id: cargo
+				size_hint_x: .8
+				write_tab: False
+				multiline: False
+
+        	
+		BoxLayout:
+			size_hint_y: .1
+			orientation: 'horizontal'
+			spacing: (30, 20)
+			Button:
+				text: 'Cancelar'
+				on_release: app.go_back(0)
+			Button: 
+				text: 'Registrarme'
+				on_press: app.sign_up(userinput)
+				on_release: app.go_screen(0)

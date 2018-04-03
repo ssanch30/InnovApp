@@ -1,0 +1,46 @@
+
+Inno2Screen: 
+	name : 'menu'
+    fullscreen: True
+
+	name: 'postulacion'
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 10
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: 10
+
+			CustLabel:
+				size_hint_x: 60
+				text: 'Nombre de la idea: '
+			Button:
+				size_hint_x: 20 
+				text: 'Enviar Idea'
+
+		TextInput:
+			size_hint_y: 20
+			focuced: True
+			multiline: False
+			font_size: 35
+			write_tab: False
+		CustLabel:
+			size_hint_y: 10
+			text: 'Decripci\u00f3n'
+		TextInput:
+			size_hint_y: 40
+			focuced: False
+			multiline: True
+			font_size: 35
+			write_tab: False
+		CustLabel:
+			size_hint_y: 10
+			text: 'Tipo de Idea: '
+
+    	Spinner:
+    		size_hint_y: 20
+	        text: 'Mejora Continua'
+	        values: ('Mejora Continua', 'Nuevo Prooducto o Servicio', 'Investigaci\u00f3n', 'Publicaci\u00f3n')
+	        size_hint_y: None
+	        height: '48dp'
+	    Widget

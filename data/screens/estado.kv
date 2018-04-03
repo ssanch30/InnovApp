@@ -1,0 +1,192 @@
+Inno2Screen: 
+    fullscreen: True
+	name: 'estado'
+	ideaName: ideaName
+	sitActual: sitActual
+	idDescr: idDescr
+	stat:stat
+	pnt: pnt 
+	idea_id:idNumber
+	inno : inno	
+	resp:resp
+	typ:typ
+	flag:flag
+
+	BoxLayout:
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: .15
+			padding: 20
+			CustLabel2:
+				text: 'Numero de tu idea: '
+				size_hint_x: .4
+				halign: 'right'
+			TextInput:
+				id: idNumber
+				multiline: False
+				font_size: 20 
+				padding: [15, ( self.height - self.line_height ) / 2]
+				halign: 'center'
+				size_hint_x: .7
+				focused: True
+				write_tab: False
+			Button:
+				text: 'Buscar'
+				size_hint_x:.2
+
+				on_press:
+					app.search_idea(idNumber.text)
+						
+				on_release : 
+					root.ideaName.text = app.idea
+					root.idDescr.text = app.description
+					root.stat.text = app.state
+					root.pnt.text = app.puntos
+					root.sitActual.text = app.situacion
+					root.inno.text = app.innovador
+					root.resp.text = app.responsable
+					root.typ.text=app.typpe
+					root.flag.text = app.flag
+
+
+		BoxLayout:
+			size_hint_y: .6
+			orientation: 'vertical'
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y:0.1
+
+				CustLabel2:
+					text: 'Innovador'
+					size_hint_x: 0.2
+					halign: 'center'
+				CustLabel2: 
+					size_hint_x: .2
+					text: 'Responsable'
+					halign: 'center'
+				CustLabel2:
+					text: 'Idea: '
+					size_hint_x: .6
+					halign: 'center'
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y:0.1
+				TextInput:
+					id:inno
+					readonly:True 
+					size_hint_x: 0.2
+					background_color: (0, 0, 0, .5)
+					padding: [15, ( self.height - self.line_height ) / 2]
+					foreground_color: (1, 1, 1, 1)
+				TextInput:
+					id:resp
+					readonly:True
+					size_hint_x: 0.2
+					background_color: (0, 0, 0, .5)
+					padding: [15, ( self.height - self.line_height ) / 2]
+					foreground_color: (1, 1, 1, 1)
+				TextInput:
+					id: ideaName
+					readonly: True
+					hint_text: 'Nombre de la idea'
+					size_hint_x: .6
+					multiline: False
+					background_color: (0, 0, 0, .5)
+					padding: [15, ( self.height - self.line_height ) / 2]
+					foreground_color: (1, 1, 1, 1)
+				
+
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y:0.3
+				CustLabel2:
+					text: 'Descripci\u00f3n: '
+					size_hint_x: .2
+					halign: 'center'
+
+				TextInput:
+					id: idDescr
+					do_scroll: True
+					readonly: True
+					hint_text: 'Breve descripci\u00f3n de la idea\nEntrada Multilinea'
+					multiline: True
+					background_color: (0, 0, 0, .5)
+					foreground_color: (1, 1, 1, 1)
+					size_hint_x: .8
+
+
+			BoxLayout:
+				size_hint_y:0.2
+				orientation: 'horizontal'
+				CustLabel2:
+					text: 'Situaci\u00f3n Actual: '
+					size_hint_x: .2
+
+				TextInput:
+					id: sitActual
+					readonly: True
+					size_hint_x: .8
+					hint_text: 'situacion actual'
+					background_color: (0, 0, 0, .5)
+					foreground_color: (1, 1, 1, 1)
+
+			BoxLayout:
+				orientation: 'horizontal'	
+				size_hint_y:0.1
+				CustLabel2:
+					text: 'Embudo: '
+					size_hint_x: .25
+					halign: 'right'
+
+				TextInput:
+					id : stat
+					readonly: True
+					hint_text: 'Lugar del embudo en el que se encuentra'
+					multiline: False
+					background_color: (0, 0, 0, .5)
+					padding: [15, ( self.height - self.line_height ) / 2]
+					foreground_color: (1, 1, 1, 1)
+					size_hint_x: .8
+				CustLabel2:
+					text: 'Puntos: '
+					size_hint_x: .25
+
+				TextInput:
+					id : pnt 
+					readonly: True
+					hint_text: 'Numero de puntos adquiridos por la idea'
+					multiline: False
+					background_color: (0, 0, 0, .5)
+					padding: [15, ( self.height - self.line_height ) / 2]
+					foreground_color: (1, 1, 1, 1)
+					size_hint_x:0.8
+
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y:0.1
+				CustLabel2:
+					text: 'Tipo: '
+					size_hint_x: .25
+				TextInput:
+					id : typ 
+					readonly: True
+					hint_text: 'MejoraContinua/Investigacion/...'
+					multiline: False
+					background_color: (0, 0, 0, .5)
+					padding: [15, ( self.height - self.line_height ) / 2]
+					foreground_color: (1, 1, 1, 1)
+					size_hint_x: .8
+				CustLabel2: 
+					text: "Color: "
+					size_hint_x: .25
+
+				TextInput:
+					id : flag	
+					readonly: True
+					hint_text: "Implementado"
+					multiline: False
+					background_color: (1,0,0,.8) if self.text=='Atrazado/Cancelado' else ( (1,1,0,.8) if self.text=='Alerta' else ((0,1,0,.8)if self.text == 'Avanzado' else( (0,0,1,.8)if self.text == 'Implementado' else(0,0,0,.8))))
+					padding: [15, ( self.height - self.line_height ) / 2]
+					foreground_color: (1, 1, 1, 1)
+					size_hint_x: .8

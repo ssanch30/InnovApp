@@ -1,0 +1,95 @@
+
+#:import builder kivy.lang.Builder
+
+Inno2Screen:
+    name: 'menu2'
+    fullscreen: True
+
+    BoxLayout:
+        orientation: 'vertical'
+        on_parent:   app.go_screen_tab(2, embudo1)           
+        BoxLayout:
+            padding : 10
+            size_hint_y: .2
+            orientation: 'horizontal'
+            Image:
+                source: 'data/img/MD.png'
+            CustLabel:
+                text: "Innovaci\u00f3n CIMD"
+                font_size: 40      
+            Image:
+                size: self.size
+                source: 'data/img/i3.png'
+
+        CustomTP:
+            do_default_tab: False
+            tp: tp
+            tab_width: self.size[0]/len(self.tab_list)
+            background_color: (0, 0, 0, .5)
+
+            ScreenManager:
+                id: tp
+                
+                Screen: 
+                    id: embudo
+                    name : "Embudo"
+                    on_enter: app.go_screen_tab(2,embudo1)
+                    BoxLayout:
+                        id: embudo1 
+                   
+
+                Screen: 
+                    id: postulacion
+                    name : "Postulacion\n de ideas"
+                    on_enter: app.go_screen_tab(3,post)
+                    BoxLayout:
+                        id: post
+
+                Screen: 
+                    id: estado
+                    name : "Estado de \n tus ideas"
+                    on_enter: app.go_screen_tab(4,estado1)
+                    BoxLayout:
+                        id: estado1
+
+                Screen: 
+                    id: incentivos
+                    name : "Plan de\nIncentivos"
+                    on_enter: app.go_screen_tab(5,incent)
+                    BoxLayout:
+                        id : incent
+                        size_hint_y: .2
+                    
+                Screen: 
+                    id: apoyo
+                    name : "Apoyo\nSocial"
+
+                    on_enter: app.go_screen_tab(7, social)
+                    BoxLayout:
+                        id : social 
+
+            TabbedPanelHeader:
+                text: embudo.name
+                bold: True
+                screen: embudo.name
+
+            TabbedPanelHeader:
+                text: postulacion.name 
+                bold: True
+                screen : postulacion.name 
+
+            TabbedPanelHeader: 
+                text: estado.name
+                bold: True
+                screen : estado.name
+
+            TabbedPanelHeader
+                text: incentivos.name
+                bold: True
+                screen : incentivos.name
+              
+
+            TabbedPanelHeader:
+                text: 'Apoyo\nSocial'
+                bold: True
+                screen : apoyo.name

@@ -1,0 +1,66 @@
+
+
+Inno2Screen: 
+	name : 'menu'
+    fullscreen: True
+
+	BoxLayout:
+		orientation: 'vertical'
+		
+		CustLabel: 
+			text: "Innovaci\u00f3n CIMD"
+			font_size: 30
+	
+	
+	    Button:
+	        id: btn
+	        text: 'Menu'
+	        on_release: dropdown.open(self)
+	        size_hint_y: None
+	        height: '48dp'
+
+	    Widget:
+	        on_parent: dropdown.dismiss()
+
+	    DropDown:
+
+	        id: dropdown
+	        Button:
+	            text: 'Apoyo Social'
+	            size_hint_y: None
+	            height: '48dp'
+	            on_press: app.go_screen(7)
+	            on_release: dropdown.select('Embudo')
+
+
+	        Button:
+	            text: 'Embudo CIMD'
+	            size_hint_y: None
+	            height: '48dp'
+	            on_press: app.go_screen(2)
+
+	            on_release: dropdown.select('Embudo')
+
+	        Button:
+	            text: 'Postulaci\u00f3n de ideas'
+	            size_hint_y: None
+	            height: '48dp'
+	            on_press: app.go_screen(3)
+	            on_release: dropdown.select('Postulacion')
+	            
+	        Button:
+	            text: 'Estado de tus ideas'
+	            size_hint_y: None
+	            height: '48dp'
+	            on_press: app.go_screen(4)
+	            on_release: dropdown.select('Estado')
+	        Button:
+	            text: 'Plan de incentivos'
+	            size_hint_y: None
+	            height: '48dp'
+	            on_press: app.go_screen(5)
+	            on_release: dropdown.select('Incentivos')
+	    BoxLayout:
+	    	orientation: 'vertical'
+	    	CustLabel: 
+	    		text: 'Noticias CIMD'

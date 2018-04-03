@@ -1,0 +1,75 @@
+
+Inno2Screen: 
+
+	name: 'login'
+	user_info: user_info
+	fullscreen: True
+	BoxLayout:
+		orientation: 'vertical'
+		id: user_info
+		uLogin: userLogin.text 
+		pLogin : pLoginB.pLogin
+		padding :10
+		
+		BoxLayout:
+            padding : 10
+            size_hint_y: .2
+            orientation: 'horizontal'
+            AsyncImage:
+                source: 'data/img/MD.png'
+
+            AsyncImage:
+                source: 'data/img/i3.png'
+		BoxLayout:
+			padding : 20
+			size_hint_y:.20
+			CustLabel:
+				font_size: 35	
+				size_hint_x: .3
+				text: "Usuario: "
+			TextInput:
+				id: userLogin
+				size_hint_x: .7
+				hint_text: "usuario@mdc.org.co"
+				focused: True
+				multiline: False
+				font_size: 25
+				write_tab: False
+				background_color: (0, 0, 0, .5)
+				padding: [15, ( self.height - self.line_height ) / 2]
+				foreground_color: (1, 1, 1, 1)
+
+		BoxLayout: 
+			id: pLoginB
+			pLogin: passwordLogin.text
+			padding: 20
+			size_hint_y:.20
+			CustLabel:
+				font_size: 35
+				size_hint_x: .3
+				text: 'Contrase\u00f1a: '
+			TextInput:
+				id: passwordLogin
+				background_color: (0, 0, 0, .5)
+				focuced: False
+				size_hint_x: .7
+				font_size : 25
+				multiline: False
+				password:True
+				write_tab: False
+				padding: [15, ( self.height - self.line_height ) / 2]				
+				foreground_color: (1, 1, 1, 1)
+
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: .1
+			spacing: 10
+			Button: 
+				
+				pos: (200,4)
+				text: "Iniciar Sesi\u00f3n"
+				on_press: app.valid_user(user_info)
+			Button:	
+				text: 'Registro'
+				
+				on_release: app.go_screen(6)

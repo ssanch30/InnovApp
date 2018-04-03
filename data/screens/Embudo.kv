@@ -1,0 +1,175 @@
+# main3.py
+
+
+
+
+Inno2Screen: 
+    fullscreen: True
+    acc: acc
+	name: 'embudo'
+	BoxLayout:
+		orientation: 'vertical'
+	    Accordion:
+	    	id: acc
+	    	acc1: acc1
+	    	acc2: acc2
+	    	acc3: acc3
+	    	acc4: acc4 
+	    	acc5: acc5
+	    	acc6: acc6
+	        orientation: 'vertical'
+
+
+	        AccordionItem:
+	        	id : acc1 
+	        	b4:b4
+	            title:  'IDEAS'
+				title_template: 'AccordionItemTitle2'
+	            background_selected: 'data/img/orangebutt.png'
+	            background_normal: 'data/img/azul.png'
+	            BoxLayout:
+	            	id: b4
+			        orientation: 'vertical'
+			        padding: 10, 10
+			        spacing: 10, 10
+			        pos: self.pos
+			        ScrollView:
+			            size_hint:(1, None)
+			            size :  (0,0)  if root.acc.acc1.collapse else (root.acc.acc4.b4.size[0]*.9, root.acc.acc4.b4.size[1]*.9 )
+			            CustGrid:
+			                size_hint_y: None
+			                cols: 3
+			                row_default_height: '65dp'
+			                row_force_default: True
+			                spacing: 0, 0
+			                padding: 0, 0
+			                height: self.minimum_height				
+	         
+	           
+	        AccordionItem:
+	        	id: acc2 
+	        	b4:b4 
+	            title: 'CONCEPTO'
+	            title_template: 'AccordionItemTitle2'
+	            background_selected: 'data/img/orangebutt.png'
+	            background_normal: 'data/img/azul.png'
+	            BoxLayout:
+	            	id: b4
+			        orientation: 'vertical'
+			        padding: 10, 10
+			        spacing: 10, 10
+			        pos: self.pos
+			        ScrollView:
+			            size_hint:(1, None)
+			            size :  (0,0)  if root.acc.acc2.collapse else (root.acc.acc2.b4.size[0]*.9, root.acc.acc2.b4.size[1]*.9 )
+			            CustGrid2:
+			                size_hint_y: None
+			                cols: 3
+			                row_default_height: '65dp'
+			                row_force_default: True
+			                spacing: 0, 0
+			                padding: 0, 0
+			                height: self.minimum_height			
+
+	        AccordionItem:
+	        	id: acc3
+	        	b4:b4  
+	            title: 'DESARROLLO PRELIMINAR'
+	            title_template: 'AccordionItemTitle2'
+	            background_selected: 'data/img/orangebutt.png'
+	            background_normal: 'data/img/azul.png'	            
+	            BoxLayout:
+	            	id: b4
+			        orientation: 'vertical'
+			        padding: 10, 10
+			        spacing: 10, 10
+			        pos: self.pos
+			        ScrollView:
+			            size_hint:(1, None)
+
+			            size :  (0,0)  if root.acc.acc3.collapse else (root.acc.acc3.b4.size[0]*.9, root.acc.acc3.b4.size[1]*.9 )
+			            CustGrid3:
+			                size_hint_y: None
+			                cols: 3
+			                row_default_height: '65dp'
+			                row_force_default: True
+			                spacing: 0, 0
+			                padding: 0, 0
+			                height: self.minimum_height		         
+
+
+	        AccordionItem:
+	        	id: acc4
+	        	b4: b4
+	            title: 'PROTOTIPO'
+	            title_template: 'AccordionItemTitle2'
+	            background_selected: 'data/img/orangebutt.png'	
+	            background_normal: 'data/img/azul.png'
+	            BoxLayout:
+	            	id: b4
+			        orientation: 'vertical'
+			        padding: 10, 10
+			        spacing: 10, 10
+			        pos: self.pos
+			        ScrollView:
+			            size_hint:(1, None)
+			            size :  (0,0)  if root.acc.acc4.collapse else (root.acc.acc4.b4.size[0]*.9, root.acc.acc4.b4.size[1]*.9 )
+			            CustGrid4:
+			                size_hint_y: None
+			                cols: 3
+			                row_default_height: '65dp'
+			                row_force_default: True
+			                spacing: 0, 0
+			                padding: 0, 0
+			                height: self.minimum_height
+
+			  	
+
+	        AccordionItem:
+	        	id: acc5
+	        	b4:b4
+	            title: 'VALIDACI\u00D3N'
+	            title_template: 'AccordionItemTitle2'
+	            background_selected: 'data/img/orangebutt.png'
+	            background_normal: 'data/img/azul.png'	            
+	            BoxLayout:
+	            	id: b4
+			        orientation: 'vertical'
+			        padding: 10, 10
+			        spacing: 10, 10
+			        pos: self.pos
+			        ScrollView:
+			            size_hint:(1, None)
+			            size :  (0,0)  if root.acc.acc5.collapse else (root.acc.acc5.b4.size[0]*.9, root.acc.acc5.b4.size[1]*.9 )
+			            CustGrid5:
+			                size_hint_y: None
+			                cols: 3
+			                row_default_height: '65dp'
+			                row_force_default: True
+			                spacing: 0, 0
+			                padding: 0, 0
+			                height: self.minimum_height		           
+	        AccordionItem:
+	        	id : acc6
+	        	b4:b4
+	            title: 'IMPLEMENTACI\u00D3N'
+	            title_template: 'AccordionItemTitle2'
+	            background_selected: 'data/img/orangebutt.png'	
+	            background_normal: 'data/img/azul.png'	            
+	            BoxLayout:
+	            	id: b4
+			        orientation: 'vertical'
+			        padding: 10, 10
+			        spacing: 10, 10
+			        pos: self.pos
+			        ScrollView:
+			            size_hint:(1, None)
+			            size :  (0,0)  if root.acc.acc6.collapse else (root.acc.acc6.b4.size[0]*.9, root.acc.acc6.b4.size[1]*.9 )
+			            CustGrid6:
+			                size_hint_y: None
+			                cols: 3
+			                row_default_height: '65dp'
+			                row_force_default: True
+			                spacing: 0, 0
+			                padding: 0, 0
+			                height: self.minimum_height		     
