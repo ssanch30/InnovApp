@@ -1,0 +1,254 @@
+# main3.py
+
+<CustLabel@Label>:
+    font_size: 25
+    bold : True
+    valign: 'middle'
+    halign: 'center'
+    text_size : self.size
+
+<CustLabel2@Label>:
+    font_size: 20
+    bold: True
+    valign :'middle'
+    halign: 'right'
+    text_size: self.size
+    size_hint_x: .2
+
+
+
+   
+
+<Inno2Screen>:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True if root.fullscreen else (content.height > root.height - dp(16))
+        AnchorLayout:
+            size_hint_y: None
+            height: root.height if root.fullscreen else max(root.height, content.height)
+            GridLayout:
+                id: content
+                cols: 1
+                spacing: '8dp'
+                padding: '8dp'
+                size_hint: (1, 1) if root.fullscreen else (.8, None)
+                height: self.height if root.fullscreen else self.minimum_height
+
+           
+BoxLayout:
+    id : ee
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1,.5
+        Rectangle:
+            size: self.size
+            source: 'data/img/background.png'
+    ScreenManager:
+        id: sm
+
+
+<CustomTP>:
+    id: tb 
+
+
+<verMas>:
+    title_size: 25
+    title_template: 'AccordionItemTitle2'
+    name: 'estado'
+    sitActual: sitActual
+    idDescr: idDescr
+    stat:stat
+    pnt: pnt 
+    inno : inno 
+    resp:resp
+    typ:typ
+    flag:flag
+
+    background_color: (1, 1, 1, .3)
+    on_open: 
+        idNum = app.idea_id
+        app.search_idea(idNum)
+        root.idDescr.text = app.description
+        root.stat.text = app.state
+        root.pnt.text = app.puntos
+        root.sitActual.text = app.situacion
+        root.inno.text = app.innovador
+        root.resp.text = app.responsable
+        root.typ.text=app.typpe
+        root.flag.text = app.flag
+
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y:0.1
+            CustLabel:
+                text: 'Innovador'
+                size_hint_x: 0.2
+                halign: 'center'
+            CustLabel2: 
+                size_hint_x: .2
+                text: 'Responsable'
+                halign: 'center'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y:0.1
+            TextInput:
+                id:inno
+                readonly:True 
+                size_hint_x: 0.2
+                background_color: (0, 0, 0, .5)
+           ####     padding_x: [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,0] if self.text else [self.center[0], 0]
+                padding_y: [ ( self.height - self.line_height ) / 2]
+                foreground_color: (1, 1, 1, 1)
+            TextInput:
+                id:resp
+                readonly:True
+                size_hint_x: 0.2
+                background_color: (0, 0, 0, .5)
+                padding_y: [ ( self.height - self.line_height ) / 2]
+                foreground_color: (1, 1, 1, 1)
+
+            
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y:0.3
+            CustLabel2:
+                text: 'Descripci\u00f3n: '
+                size_hint_x: .2
+                halign: 'center'
+
+            TextInput:
+                id: idDescr
+                do_scroll: True
+                readonly: True
+                hint_text: 'Breve descripci\u00f3n de la idea\nEntrada Multilinea'
+                multiline: True
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                background_color: (0, 0, 0, .5)
+                foreground_color: (1, 1, 1, 1)
+                size_hint_x: .8
+
+        BoxLayout:
+            size_hint_y:0.2
+            orientation: 'horizontal'
+            CustLabel2:
+                text: 'Situaci\u00f3n Actual: '
+                size_hint_x: .2
+
+            TextInput:
+                id: sitActual
+                readonly: True
+                size_hint_x: .8
+                hint_text: 'situacion actual'
+                background_color: (0, 0, 0, .5)
+                foreground_color: (1, 1, 1, 1)
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+        BoxLayout:
+            orientation: 'horizontal'   
+            size_hint_y:0.1
+            Label:
+                font_size: 16
+                text: 'Embudo: '
+                bold: True
+                valign :'middle'
+                halign: 'right'
+                text_size: self.size
+                size_hint_x: .3
+
+            TextInput:
+                id : stat
+                readonly: True
+                hint_text: 'Lugar del embudo en el que se encuentra'
+                multiline: False
+                background_color: (0, 0, 0, .5)
+                padding: [15, ( self.height - self.line_height ) / 2]
+                foreground_color: (1, 1, 1, 1)
+                size_hint_x: .8
+            Label:
+                text: 'Puntos: '
+                font_size: 16
+                bold: True
+                valign :'middle'
+                halign: 'right'
+                text_size: self.size
+                size_hint_x: .3
+
+            TextInput:
+                id : pnt 
+                readonly: True
+                hint_text: 'Numero de puntos adquiridos por la idea'
+                multiline: False
+                background_color: (0, 0, 0, .5)
+                padding: [15, ( self.height - self.line_height ) / 2]
+                foreground_color: (1, 1, 1, 1)
+                size_hint_x:0.8
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y:0.1
+            CustLabel2:
+                text: 'Tipo: '
+                font_size: 16
+                bold: True
+                valign :'middle'
+                halign: 'right'
+                text_size: self.size
+                size_hint_x: .3
+            TextInput:
+                id : typ 
+                readonly: True
+                hint_text: 'MejoraContinua/Investigacion/...'
+                multiline: False
+                background_color: (0, 0, 0, .5)
+                padding: [15, ( self.height - self.line_height ) / 2]
+                foreground_color: (1, 1, 1, 1)
+                size_hint_x: .8
+            CustLabel2: 
+                text: "Color: "
+                font_size: 16
+                bold: True
+                valign :'middle'
+                halign: 'right'
+                text_size: self.size
+                size_hint_x: .3
+            TextInput:
+                id : flag   
+                readonly: True
+                hint_text: "Implementado"
+                multiline: False
+                background_color: (0, 0, 0, .5)
+                padding: [15, ( self.height - self.line_height ) / 2]
+                foreground_color: (1, 1, 1, 1)
+                size_hint_x: .8
+        Button:
+            size_hint: .3, .1
+            pos_hint: {'center_x': .5}
+            text: 'Atr\u00E1s'
+            on_release: root.dismiss()
+
+
+
+
+                
+
+
+<CustGridTest>:
+
+<Scrollable>:
+
+
+<CustGrid>:
+<CustGrid2>:
+<CustGrid3>:
+<CustGrid4>:
+<CustGrid5>:
+<CustGrid6>:
+
+
+
